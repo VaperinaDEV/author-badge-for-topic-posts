@@ -1,7 +1,7 @@
 filter:
   default: ""
   type: "list"
-  description: "Semicolon delimited in this order: <br> <strong>view-type;category-name;author-label</strong> <br> view-type = desktop or mobile or you can leave it empty to target both view type <br> Wildcard: <br> <strong>leave-empty;leave-empty;author-label</strong><br><br> Need help with setup? More info can be found in the Meta topic: https://meta.discourse.org/t/-/277579 <br><br>"
+  description: "Semicolon delimited in this order: <br> <strong>view-type;category-name;author-label</strong> <br> view-type = desktop or mobile or you can leave it empty to target both view type <br><br> Wildcard: <br> <strong>leave-empty;leave-empty;author-label</strong><br><br> Need help with setup? More info can be found in the Meta topic: https://meta.discourse.org/t/-/277579 <br><br>"
 background:
   default: "var(--primary-high-or-secondary-low)"
 text_color:
