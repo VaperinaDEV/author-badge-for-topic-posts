@@ -1,0 +1,54 @@
+@import "variables";
+@import "mixins";
+@import "str-to-list";
+
+// Topic author
+
+@each $view-type, $category-slug, $author-label in $nested-list {
+  html[class*="#{$view-type}-view"] {
+    body[class*="category-#{$category-slug}"],
+    body.archetype-regular.category-#{$category-slug} {
+      .topic-post {
+        &.topic-owner {
+          article:not(#post_1) {
+            > .row {
+              @if $author_badge_location_desktop == "below-user-avatar" {
+                > .topic-avatar {
+                  &:after {
+                    content: $author-label;
+                    @include below-user-avatar;
+                  }
+                }
+              }
+              @if $author_badge_location_desktop == "after-user-names" {
+                > .topic-body {
+                  .topic-meta-data {
+                    .names {
+                      &:after {
+                        content: $author-label;
+                        @include after-user-names;
+                      }
+                    }
+                  }
+                }
+              }
+              @if $author_badge_location_desktop == "below-user-names" {
+                > .topic-body {
+                  .regular.contents {
+                    &:before {
+                      content: $author-label;
+                      @include below-user-names;
+                      position: relative;
+                      margin-left: var(--topic-body-width-padding);
+                      top: -4px;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,31 @@
+filter:
+  default: ""
+  type: "list"
+  description: "Semicolon delimited in this order: <br> <strong>view-type;category-name;author-label</strong> <br><br> Wildcard: <br> <strong>leave-empty;leave-empty;author-label</strong><br><br>"
+background:
+  default: "var(--primary-high-or-secondary-low)"
+text_color:
+  default: "var(--secondary)"
+font_style:
+  type: enum
+  default: "normal"
+  choices:
+    - bold
+    - italic
+    - bold-italic
+border_color:
+  default: "transparent"
+border_radius:
+  default: "8px"
+author_badge_location_desktop:
+  type: enum
+  default: "below-user-avatar"
+  choices:
+    - after-user-names
+    - below-user-names
+author_badge_location_mobile:
+  type: enum
+  default: "below-user-avatar"
+  choices:
+    - after-user-names
+    - above-user

@@ -1,0 +1,19 @@
+@function str-to-list($string, $separator, $startAt: 1) {
+  $item: str-slice($string, $startAt);
+  $list: ();
+  $index: str-index($item, $separator);
+  @if $index == null {
+    $list: ($item);
+  } @else {
+    $list: (str-slice($item, 1, $index - 1));
+    $list: join($list, str-to-list($item, $separator, $startAt: $index + 1));
+  }
+  @return $list;
+}
+
+$list: str-to-list("#{$filter}", "|");
+$nested-list: ();
+@each $item in $list {
+  $item: str-to-list("#{$item}", ";");
+  $nested-list: append($nested-list, $item);
+}

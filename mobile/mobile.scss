@@ -1,0 +1,68 @@
+@import "variables";
+@import "mixins";
+@import "str-to-list";
+
+// Topic author
+
+// Mobile
+@each $view-type, $category-slug, $author-label in $nested-list {
+  html[class*="#{$view-type}-view"] {
+    body[class*="category-#{$category-slug}"],
+    body.archetype-regular.category-#{$category-slug} {
+      @if $author_badge_location_mobile == "above-user" {
+        .time-gap {
+          + .topic-post {
+            &.topic-owner {
+              article:not(#post_1) {
+                border-top: 1px solid var(--primary-low);
+              }
+            }
+          }
+        }
+      }
+      .topic-post {
+        &.topic-owner {
+          article:not(#post_1) {
+            > .row {
+              @if $author_badge_location_mobile == "below-user-avatar" {
+                > .topic-avatar {
+                  &:after {
+                    content: $author-label;
+                    @include below-user-avatar;
+                  }
+                }
+              }
+              @if $author_badge_location_mobile == "after-user-names" {
+                > .topic-body {
+                  .topic-meta-data {
+                    .names {
+                      align-items: center;
+                      &:before {
+                        content: $author-label;
+                        @include after-user-names;
+                        order: 3;
+                      }
+                      .user-status-message-wrap {
+                        display: flex;
+                        align-items: center;
+                      }
+                    }
+                  }
+                }
+              }
+              @if $author_badge_location_mobile == "above-user" {
+                &:before {
+                  content: $author-label;
+                  @include above-user;
+                }
+                .topic-body {
+                  margin-top: 0.25em;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
