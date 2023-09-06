@@ -39,6 +39,7 @@
 @mixin after-user-names {
   @include author-badge;
   margin-left: 0.25em;
+  margin-right: 0.25em;
 }
 
 @mixin below-user-names {
@@ -49,7 +50,6 @@
   @include author-badge;
   position: absolute;
   top: -1px;
-  left: 0;  
   border-radius: 0 0 var(--author-badge-border-radius) var(--author-badge-border-radius);
   font-size: var(--font-down-2);
 }
