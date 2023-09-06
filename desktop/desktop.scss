@@ -40,6 +40,7 @@
                       @include below-user-names;
                       position: relative;
                       margin-left: var(--topic-body-width-padding);
+                      margin-right: var(--topic-body-width-padding);
                       top: -4px;
                     }
                   }
